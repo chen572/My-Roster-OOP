@@ -1,0 +1,130 @@
+@keyframes up-bump {
+    0% {
+        padding-top: 2em;
+    }
+    50% {
+        padding-top: 1.5em;
+    }
+    100% {
+        padding-top: 2em;
+    }
+}
+
+@keyframes down-bump {
+    0% {
+        padding-top: 2em;
+    }
+    50% {
+        padding-top: 2.5em;
+    }
+    100% {
+        padding-top: 2em;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'Rokkitt', serif;
+    font-size: 26px;
+}
+
+span {
+    font-size: 30px;
+}
+
+#container {
+    display: grid;
+    background-color: #ecf0f1;
+}
+
+#input-div {
+    grid-row: 1;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+#team-input {
+    width: 65%;
+    padding: 15px;
+    font-family: 'Rokkitt', serif;
+    font-size: 22px;
+}
+
+#search {
+    width: 15%;
+    padding: 15px;
+    font-family: 'Rokkitt', serif;
+    font-size: 22px;
+}
+
+#dream-team-btn {
+    width: 15%;
+    padding: 15px;
+    font-family: 'Rokkitt', serif;
+    font-size: 22px;
+}
+
+#roster {
+    grid-row: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.players {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: black 2px 2px 4px;
+    border-radius: 5px;
+    margin: 20px;
+    background: linear-gradient( white, white 50%, #333 50%, #333);
+    background-size: 100% 200%;
+    transition: all 0.2s ease;
+    animation: down-bump 0.4s ease;
+    padding: 15px;
+    width: 400px;
+    height: 370px;
+    cursor: pointer;
+}
+
+.players:hover {
+    background-position: 100% 100%;
+    animation: up-bump 0.4s ease;
+    color: white;
+    font-size: 30px;
+}
+
+.player-img-container {
+    width: 300px;
+    height: 200px;
+    background-color: #bdc3c7;
+    box-shadow: black 2px 2px 2px;
+    margin: 10px;
+}
+
+.player-img {
+    width: 100%;
+    height: 100%;
+}
+
+.stats {
+    font-size: 14px;
+    margin: 0;
+}
+
+hr {
+    margin: 0;
+    width: 75%;
+}
+
+.add-to-dt {
+    padding: 15px;
+    background-color: teal;
+    border-radius: 5px;
+    font-family: 'Rokkitt', serif;
+    font-size: 20px;
+    margin: 5px;
+}
