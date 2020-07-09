@@ -43,7 +43,23 @@ router.post('/roster', (req, res) => {
     const player = req.body
     player.firstName = player.name.split(' ')[1]
     player.lastName = player.name.split(' ')[0]
-    dreamTeam.length < 5 ? dreamTeam.push(player) : res.end()
+
+    if (dreamTeam.some(p =>
+        p.name == player.name &&
+        p.pos == player.pos &&
+        p.jersey == player.jersey
+    )) {
+        res.end()
+    } else {
+        dreamTeam.length < 5 ? dreamTeam.push(player) : res.end()
+    }
+})
+
+router.delete('/roster', (req, res) => {
+    const player = req.body
+    player.firstName = player.name.split(' ')[1]
+    player.lastName = player.name.split(' ')[0]
+    dreamTeam.splice(dreamTeam.indexOf(player), 1);
     res.end()
 })
 

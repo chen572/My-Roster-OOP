@@ -34,9 +34,9 @@
     </script>
 
     <script id="dreamTeam-template" type="text/x-handlebars-template">
-        {{#each dreamTeam}}
+        {{#each data}}
             <div class="players" data-name="{{this.lastName}} {{this.firstName}}" data-jersey="{{this.jersey}}" data-pos="{{this.pos}}">{{this.firstName}} {{this.lastName}}<br>{{this.jersey}}<div class="player-img-container"><img class="player-img" src="https://nba-players.herokuapp.com/players/{{this.lastName}}/{{this.firstName}}" onerror="this.src = 'https://pbs.twimg.com/profile_images/3312772829/fe74ab341c1522700845ce9d1263d3fb_400x400.png'"></div>
-            {{this.pos}}
+            {{this.pos}} <button class="remove-from-dt">Remove From Dream Team</button>
             </div>
         {{/each}}
     </script>

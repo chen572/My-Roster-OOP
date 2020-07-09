@@ -1,7 +1,6 @@
 class ApiManager {
     constructor() {
         this.team = []
-        this.dreamTeam = []
     }
 
     getTeam(teamName) {
@@ -11,19 +10,24 @@ class ApiManager {
     }
 
     getStats(playerName) {
-        return $.get(`/playerStats/${playerName}`, data => {
-            return data
-        })
+        return $.get(`/playerStats/${playerName}`, data => data)
     }
 
 
     getDreamteam() {
-        return $.get('/dreamTeam', data => {
-            return data
-        })
+        return $.get('/dreamTeam', data => data)
     }
 
     addToDreamTeam(player) {
         return $.post('/roster', player)
+    }
+    
+    removeFromDreamTeam(player) {
+        return $.ajax({
+            type: 'DELETE',
+            url: '/roster',
+            contentType: 'application/json',
+            data: JSON.stringify(player)
+        })
     }
 }

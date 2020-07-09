@@ -128,3 +128,12 @@ hr {
     font-size: 20px;
     margin: 5px;
 }
+
+.remove-from-dt {
+    padding: 15px;
+    background-color: teal;
+    border-radius: 5px;
+    font-family: 'Rokkitt', serif;
+    font-size: 20px;
+    margin: 5px;
+}

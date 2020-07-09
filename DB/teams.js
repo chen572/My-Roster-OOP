@@ -188,13 +188,13 @@ const teamsID = [
         "simpleName": "Spurs",
         "location": "San Antonio"
     },
-    // {
-    //     "teamId": 1610612761,
-    //     "abbreviation": "TOR",
-    //     "teamName": "Toronto Raptors",
-    //     "simpleName": "Raptors",
-    //     "location": "Toronto"
-    // },
+    {
+        "teamId": 1610612761,
+        "abbreviation": "TOR",
+        "teamName": "Toronto Raptors",
+        "simpleName": "Raptors",
+        "location": "Toronto"
+    },
     {
         "teamId": 1610612762,
         "abbreviation": "UTA",
@@ -202,13 +202,13 @@ const teamsID = [
         "simpleName": "Jazz",
         "location": "Utah"
     },
-    // {
-    //     "teamId": 1610612764,
-    //     "abbreviation": "WAS",
-    //     "teamName": "Washington Wizards",
-    //     "simpleName": "Wizards",
-    //     "location": "Washington"
-    // },
+    {
+        "teamId": 1610612764,
+        "abbreviation": "WAS",
+        "teamName": "Washington Wizards",
+        "simpleName": "Wizards",
+        "location": "Washington"
+    },
     {
         "teamId": 1610612747,
         "simpleName": "Lakers"
