@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Roster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="container">
+        <div id="input-div">
+            <input type="text" id="team-input" placeholder="Enter a team's name">
+            <button id="search"><span>G</span>ET <span>R</span>OSTER</button>
+            <button id="dream-team-btn"><span>D</span>REAM <span>T</span>EAM</button>
+        </div>
+        <div id="roster"></div>
+    </div>
+
+
+    <script id="players-template" type="text/x-handlebars-template">
+        {{#each data}}
+            <div class="players" data-name="{{this.lastName}} {{this.firstName}}" data-jersey="{{this.jersey}}" data-pos="{{this.pos}}">{{this.firstName}} {{this.lastName}}<br>{{this.jersey}}<div class="player-img-container"><img class="player-img" src="https://nba-players.herokuapp.com/players/{{this.lastName}}/{{this.firstName}}" onerror="this.src = 'https://pbs.twimg.com/profile_images/3312772829/fe74ab341c1522700845ce9d1263d3fb_400x400.png'"></div>
+            {{this.pos}} <button class="add-to-dt">Add To Dream Team</button>
+            </div>
+        {{/each}}
+    </script>
+
+    <script id="player-stats-template" type="text/x-handlebars-template">
+        {{#each data}}
+            <p class="stats">{{@key}} - {{this}}</p><hr>
+        {{/each}}
+    </script>
+
+    <script id="dreamTeam-template" type="text/x-handlebars-template">
+        {{#each data}}
+            <div class="players" data-name="{{this.lastName}} {{this.firstName}}" data-jersey="{{this.jersey}}" data-pos="{{this.pos}}">{{this.firstName}} {{this.lastName}}<br>{{this.jersey}}<div class="player-img-container"><img class="player-img" src="https://nba-players.herokuapp.com/players/{{this.lastName}}/{{this.firstName}}" onerror="this.src = 'https://pbs.twimg.com/profile_images/3312772829/fe74ab341c1522700845ce9d1263d3fb_400x400.png'"></div>
+            {{this.pos}} <button class="remove-from-dt">Remove From Dream Team</button>
+            </div>
+        {{/each}}
+    </script>
+
+    <script src="handlebars/dist/handlebars.js"></script>
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="apiManager.js"></script>
+    <script src="renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
