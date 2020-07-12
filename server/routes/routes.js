@@ -30,7 +30,11 @@ router.get('/playerStats/:player', (req, res) => {
     const playerNameQ = req.params.player.split(' ').join('/')
 
     urllib.request(`https://nba-players.herokuapp.com/players-stats/${playerNameQ}`, (err, data) => {
-        res.send(JSON.parse(data.toString()))
+        try {
+            res.send(JSON.parse(data.toString()))
+        } catch (e) {
+            res.send('not available')
+        }
     })
 
 })
@@ -57,9 +61,13 @@ router.post('/roster', (req, res) => {
 
 router.delete('/roster', (req, res) => {
     const player = req.body
-    player.firstName = player.name.split(' ')[1]
-    player.lastName = player.name.split(' ')[0]
-    dreamTeam.splice(dreamTeam.indexOf(player), 1);
+
+    const playerIndex = dreamTeam.findIndex(p =>
+                            p.name == player.name &&
+                            p.pos == player.pos &&
+                            p.jersey == player.jersey)
+
+    dreamTeam.splice(playerIndex, 1);
     res.end()
 })
 

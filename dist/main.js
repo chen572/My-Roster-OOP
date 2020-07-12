@@ -4,7 +4,7 @@ const renderer = new Renderer()
 $('#search').click(() => {
     const teamName = $('#team-input').val()
     apiManager.getTeam(teamName)
-        .then(() => { renderer.render('#players-template', apiManager.team, '#roster') })
+        .then(() => { renderer.render('#players-template', apiManager.team, $('#roster')) })
 })
 
 $('#roster').on('click', '.player-img-container, .stats', event => {
@@ -12,12 +12,12 @@ $('#roster').on('click', '.player-img-container, .stats', event => {
     const playerName = playerDiv.data().name
 
     if (playerDiv.hasClass('stats-T')) {
-        renderer.render('#players-template', apiManager.team, '#roster')
+        renderer.render('#players-template', apiManager.team, $('#roster'))
         playerDiv.removeClass('stats-T')
     } else {
         apiManager.getStats(playerName)
             .then((stats) => {
-                renderer.renderStats('#player-stats-template', stats, playerDiv)
+                renderer.render('#player-stats-template', stats, playerDiv)
                 playerDiv.addClass('stats-T')
             })
     }
@@ -25,7 +25,7 @@ $('#roster').on('click', '.player-img-container, .stats', event => {
 
 $('#dream-team-btn').click(() => {
     apiManager.getDreamteam()
-        .then(data => { renderer.render('#dreamTeam-template', data, '#roster') })
+        .then(data => { renderer.render('#dreamTeam-template', data, $('#roster')) })
 })
 
 $('#roster').on('click', '.add-to-dt', event => {
@@ -39,6 +39,6 @@ $('#roster').on('click', '.remove-from-dt', event => {
     apiManager.removeFromDreamTeam(player)
         .then(apiManager.getDreamteam()
             .then(data => {
-                renderer.render('#dreamTeam-template', data, '#roster')
+                renderer.render('#dreamTeam-template', data, $('#roster'))
             }))
 })

@@ -10,12 +10,12 @@ class ApiManager {
     }
 
     getStats(playerName) {
-        return $.get(`/playerStats/${playerName}`, data => data)
+        return $.get(`/playerStats/${playerName}`)
     }
 
 
     getDreamteam() {
-        return $.get('/dreamTeam', data => data)
+        return $.get('/dreamTeam')
     }
 
     addToDreamTeam(player) {
