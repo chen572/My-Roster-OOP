@@ -16,6 +16,6 @@
     "handlebars": "^4.7.6",
     "jquery": "^3.5.1",
     "request": "^2.88.2",
-    "urllib": "^2.36.1"
+    "urllib": "^2.38.1"
   }
 }
